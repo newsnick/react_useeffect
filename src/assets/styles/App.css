@@ -9,3 +9,12 @@
 .container {
   padding: 5%;
 }
+
+.marksm {
+  background-color: dodgerblue;
+  color: black;
+}
+
+hr {
+  margin: 5%;
+}

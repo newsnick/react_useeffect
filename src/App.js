@@ -4,10 +4,17 @@ import Counter from './components/Counter/Counter'
 import MountMessage from './components/MountMessage/MountMessage'
 import UpdateTitle from './components/UpdateTitle/UpdateTitle'
 import CurrentTime from './components/CurrentTime/CurrentTime'
+import FetchImage from './components/FetchImage/FetchImage'
+import ToggleBackground from './components/ToogleBackground/ToggleBackground'
+import RandomNumber from './components/RandomNumber/RandomNumber'
+import DateTime from './components/DateTime/DateTime'
+import FetchPost from './components/FetchPost/FetchPost'
+import DateTitle from './components/DateTitle/DateTitle'
 
 function App() {
   return (
     <div className="container">
+      <h5>1. level</h5>
       <mark>
         1. Create a component that updates a counter every time the component
         mounts using useEffect.
@@ -29,27 +36,78 @@ function App() {
         seconds using setInterval and useEffect.
         <CurrentTime />
       </mark>
+      <div></div>
+      <mark>
+        7. Create a component that uses useEffect to fetch and display a random
+        image from an API every time the component mounts.
+        <FetchImage />
+      </mark>
+      <mark>
+        8. Create a component that uses useEffect to toggle the background color
+        of the page when a button is clicked.
+        <ToggleBackground />
+      </mark>
+      <mark>
+        9. Create a component that uses useEffect to display a random number
+        between 1 and 100 every time the component mounts.
+        <RandomNumber />
+      </mark>
+      <mark>
+        10. Create a component that uses useEffect to display the current date
+        and time on the screen.
+        <DateTime />
+      </mark>
+      <hr className="hr" />
+
+      <h5>2. level</h5>
+      <mark className="marksm">
+        1. Create a component that fetches data from an API using useEffect and
+        displays the results in a list.
+        <FetchPost />
+      </mark>
+      <mark className="marksm">
+        2. Create a component that updates the document title based on the
+        current date using useEffect.
+        <DateTitle />
+      </mark>
     </div>
   )
 }
 
 export default App
 
-/* import React, { useEffect, useState } from 'react'
+/* import { useEffect, useState } from 'react'
+import TodoList from './TodoList'
+import { Context } from './context'
 
 function App() {
-  const [todos, setTodos] = useState([
-    {
-      id: 1,
-      title: 'First todo',
-    },
-    {
-      id: 2,
-      title: 'Second todo',
-    },
-  ])
-
+  const [todos, setTodos] = useState([])
   const [todoTitle, setTodoTitle] = useState('')
+
+  useEffect(() => {
+    const list = localStorage.getItem('todos')
+    setTodos(JSON.parse(list))
+  }, [])
+
+  const removeTodo = (id) => {
+    setTodos(
+      todos.filter((todo) => {
+        return todo.id !== id
+      })
+    )
+  }
+
+  const toggleTodo = (id) => {
+    setTodos(
+      todos.map((todo) => {
+        if (todo.id === id) {
+          todo.completed = !todo.completed
+        }
+        return todo
+      })
+    )
+  }
+
   const addTodo = (event) => {
     if (event.key === 'Enter') {
       setTodos([
@@ -60,27 +118,37 @@ function App() {
           completed: false,
         },
       ])
+      setTodoTitle('')
     }
   }
 
-  return (
-    <div className="container">
-      <h1>Todo app</h1>
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
-      <div className="input-field">
-        <input
-          type="text"
-          value={todoTitle}
-          onChange={(event) => setTodoTitle(event.target.value)}
-          onKeyPress={addTodo}
-        />
-        <label>Todo name</label>
-      </div>
-      <div>
+  return (
+    <Context.Provider
+      value={{
+        removeTodo,
+        toggleTodo,
+      }}
+    >
+      <div className="container">
+        <h1>Todo app</h1>
+        <div className="input-field">
+          <input
+            type="text"
+            value={todoTitle}
+            onChange={(event) => setTodoTitle(event.target.value)}
+            onKeyPress={addTodo}
+          />
+          <label>Todo name</label>
+        </div>
         <TodoList todos={todos} />
       </div>
-    </div>
+    </Context.Provider>
   )
 }
 
-export default App */
+export default App
+ */
