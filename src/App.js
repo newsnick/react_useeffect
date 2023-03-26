@@ -10,6 +10,10 @@ import RandomNumber from './components/RandomNumber/RandomNumber'
 import DateTime from './components/DateTime/DateTime'
 import FetchPost from './components/FetchPost/FetchPost'
 import DateTitle from './components/DateTitle/DateTitle'
+import AddRemoveEvent from './components/AddRemoveEvent/AddRemoveEvent'
+import SetFetchData from './components/SetFetchData/SetFetchData'
+import FetchCat from './components/FetchCat/FetchCat'
+import FetchApi from './components/FetchApi/FetchApi'
 
 function App() {
   return (
@@ -24,6 +28,10 @@ function App() {
         2. Create a component that displays a message on the screen every time
         the component mounts using useEffect.
         <MountMessage />
+      </mark>
+      <mark>
+        3. Create a component that fetches data from an API and logs it to the
+        console using useEffect. <FetchApi />
       </mark>
       <mark>
         4. Create a component that updates the document title every time the
@@ -69,6 +77,25 @@ function App() {
         2. Create a component that updates the document title based on the
         current date using useEffect.
         <DateTitle />
+      </mark>
+      <mark className="marksm">
+        3. Create a component that uses useEffect to add and remove event
+        listeners for keydown and keyup events.
+        <AddRemoveEvent />
+      </mark>
+      <mark className="marksm">
+        4. Create a component that fetches data from an API every 5 seconds
+        using setInterval and useEffect.
+        <SetFetchData />
+      </mark>
+      <mark className="marksm">
+        7. Create a component that uses useEffect to display the current weather
+        for a given location using an API.
+      </mark>
+      <mark className="marksm">
+        8. Create a component that uses useEffect to display a random cat image
+        every time the component mounts.
+        <FetchCat />
       </mark>
     </div>
   )
